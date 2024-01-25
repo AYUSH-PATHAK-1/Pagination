@@ -32,18 +32,18 @@ const App = () => {
   <table className='min-w-full bg-white border border-gray-300'>
     <thead>
       <tr>
-        <th className='py-2 px-4 border-b text-center'>ID</th>
+        <th className='py-2 px-4 border-b text-center border-black border-[1px] border-solid'>ID</th>
         {/* <div class="line rotate-90 border-[1px] border-orange-500 md:block"></div> */}
-        <th className='py-2 px-4 border-b text-center'>Name</th>
-        <th className='py-2 px-4 border-b text-center'>Email</th>
+        <th className='py-2 px-4 border-b text-center border-black border-[1px] border-solid'>Name</th>
+        <th className='py-2 px-4 border-b text-center border-black border-[1px] border-solid'>Email</th>
       </tr>
     </thead>
     <tbody>
       {records.map((d, i) => (
         <tr key={i} className={(i % 2 === 0 ? 'bg-green-100' : 'bg-white')}>
-          <td className='py-2 px-4 border-b text-center align-middle'>{d.id}</td>
-          <td className='py-2 px-4 border-b text-center align-middle'>{d.name}</td>
-          <td className='py-2 px-4 border-b text-center align-middle'>{d.email}</td>
+          <td className='py-2 px-4 border-b text-center align-middle border-black border-[1px] border-solid'>{d.id}</td>
+          <td className='py-2 px-4 border-b text-center align-middle border-black border-[1px] border-solid'>{d.name}</td>
+          <td className='py-2 px-4 border-b text-center align-middle border-black border-[1px] border-solid'>{d.email}</td>
         </tr>
       ))}
     </tbody>
