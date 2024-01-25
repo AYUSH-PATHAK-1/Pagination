@@ -48,14 +48,16 @@ const App = () => {
       ))}
     </tbody>
   </table>
-  <nav className="flex items-center justify-center mt-4 ">
+  <nav className="flex items-center justify-center mt-4">
   <ul className="flex list-none p-2 border-black border-[1px] rounded-lg">
     <li className="mr-3 p-2">
       <a href="#" className="page-link" onClick={prePage}>
         Prev
       </a>
     </li>
-    {numbers.map((n, i) => (
+    {numbers.slice(
+      Math.max(Math.min(curruntpage - 1, npage - 4), 0),
+      Math.min(curruntpage + 3, npage)).map((n, i) => (
       <li key={i} className={`mr-3 ${curruntpage === n ? 'bg-blue-500' : ''} p-2 rounded-lg`}>
         <a href="#" className="page-link" onClick={() => changeCpage(n)}>
           {n}
@@ -69,6 +71,7 @@ const App = () => {
     </li>
   </ul>
 </nav>
+
 
 
 </div>
