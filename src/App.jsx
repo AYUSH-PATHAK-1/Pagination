@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Data from './Data.json'
 
 const App = () => {
-  const [curruntpage,setCurrentpage]=useState(1)
+  const [curruntpage, setCurrentpage] = useState(() => {
+    const storedPage = localStorage.getItem('currentPage');
+    return storedPage ? parseInt(storedPage, 10) : 1;
+  });
   const recordsPerpage=5;
   const lastIndex=curruntpage*recordsPerpage;
   const firstIndex=lastIndex-recordsPerpage;
   const records=Data.slice(firstIndex,lastIndex);
   const npage=Math.ceil(Data.length/recordsPerpage);
   const numbers=[...Array(npage+1).keys()].slice(1);
+
+  useEffect(() => {
+    localStorage.setItem('currentPage', curruntpage.toString());
+  }, [curruntpage]);
 
   function prePage(){
     if(curruntpage !==1){
